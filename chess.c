@@ -8,5 +8,6 @@ char** reverse(char** fig){
     res++;
   }
   printf("length: %d\n", i);
+  res = fig;
   return res;
 }
