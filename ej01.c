@@ -2,5 +2,5 @@
 #include "figures.h"
 
 void display(){
-  interpreter(join(whiteSquare, reverse(whiteSquare)));
+  interpreter(repeatH(join(whiteSquare, reverse(whiteSquare)), 4));
 }
