@@ -4,11 +4,13 @@ char** reverse(char** fig){
   char** res = fig;
   int i = 0;
   while(*res){
-    while(**res){
-      printf("%d", **res);
-      *res++;
+    char* line = *res;
+    while(*line){
+      printf("%c", *line);
+      line++;
       i++;
     }
+    printf("\n");
     res++;
   }
   printf("length: %d\n", i);
