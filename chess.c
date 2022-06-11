@@ -20,6 +20,7 @@ char** reverse(char** fig){
       lineF++;
       i++;
     }
+    *lineR = 0;
     printf("\n");
     res++;
     pfig++;
