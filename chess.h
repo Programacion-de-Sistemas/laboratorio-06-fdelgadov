@@ -79,4 +79,6 @@ char** repeatV(char**, int);
  * dangerous for your heatlh 
  */
 void interpreter(char**);
+
+void freeMem(char**);
 #endif

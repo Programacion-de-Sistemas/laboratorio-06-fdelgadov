@@ -35,6 +35,17 @@ int width(char** fig){
   return w;
 }
 
+void freeMem(char** fig){
+  char** pfig = fig;
+
+  while(*pfig){
+    free(*pfig);
+    pfig++;
+  }
+
+  free(fig);
+}
+
 char** reverse(char** fig){
   char** res = (char**) malloc(sizeof(char*) * 58);
   char** resx = res;

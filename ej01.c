@@ -2,5 +2,9 @@
 #include "figures.h"
 
 void display(){
-  interpreter(join(whiteSquare, reverse(whiteSquare)));
+  char** blackSquare = reverse(whiteSquare);
+  char** twoSquares = join(whiteSquare, blackSquare);
+  freeMem(blackSquare);
+  interpreter(twoSquares);
+  freeMem(twoSquares);
 }
