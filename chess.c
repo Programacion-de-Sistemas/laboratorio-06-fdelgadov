@@ -11,6 +11,30 @@ char negative(char ch){
   }
 }
 
+int height(char** fig){
+  char** pfig = fig;
+  int h = 0;
+
+  while(*pfig){
+    h++;
+    pfig++;
+  }
+
+  return h;
+}
+
+int width(char** fig){
+  int w = 0;
+  char* line = *fig;
+
+  while(*line){
+    w++;
+    line++;
+  }
+
+  return w;
+}
+
 char** reverse(char** fig){
   char** res = (char**) malloc(sizeof(char*) * 58);
   char** resx = res;
@@ -44,27 +68,13 @@ char** join(char** left, char** right){
   char** pleft = left;
   char** pright = right;
 
-  int h = 0;
-  while(*pleft){
-    h++;
-    pleft++;
-  }
+  int h = height(left);
   printf("h: %d\n", h);
-  pleft = left;
   
-  int w = 0;
-  char* lineL = *pleft;
-  while(*lineL){
-    w++;
-    lineL++;
-  }
+  int w = width(right);
   printf("w: %d\n", w);
   
-  char* lineR = *pright;
-  while(*lineR){
-    w++;
-    lineR++;
-  }
+  w += width(right);
   printf("w: %d\n", w);
 
   char** res = (char**) malloc(sizeof(char*) * h);
