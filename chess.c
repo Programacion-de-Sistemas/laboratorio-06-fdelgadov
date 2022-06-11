@@ -1,12 +1,14 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 char** reverse(char** fig){
-  char** res;
+  char** res = (char**) malloc(sizeof(char*) * 58);
   char** pfig = fig;
   char* lineR;
   char* lineF;
   int i = 0;
   while(*res){
+    *res = (char*) malloc(sizeof(char) * 58);
     lineR = *res;
     lineF = *pfig;
     while(*lineR){
@@ -21,6 +23,5 @@ char** reverse(char** fig){
     pfig++;
   }
   printf("length: %d\n", i);
-  res = fig;
   return res;
 }
