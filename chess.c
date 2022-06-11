@@ -1,6 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+char negative(char ch){
+  switch(ch){
+    case '.': return '@';
+    case '@': return '.';
+    case '_': return '=';
+    case '=': return '_';
+    default: return ch;
+  }
+}
+
 char** reverse(char** fig){
   char** res = (char**) malloc(sizeof(char*) * 58);
   char** resx = res;
@@ -14,7 +24,7 @@ char** reverse(char** fig){
     lineF = *pfig;
 
     while(*lineF){
-      *lineR = *lineF;
+      *lineR = negative(*lineF);
       printf("%c", *lineR);
       lineR++;
       lineF++;
