@@ -39,3 +39,36 @@ char** reverse(char** fig){
   printf("length: %d\n", i);
   return resx;
 }
+
+char** join(char** left, char** right){
+  char** pleft = left;
+  char** pright = right;
+
+  int h = 0;
+  while(*pleft){
+    h++;
+    pleft++;
+  }
+  printf("h: %d\n", h);
+  pleft = left;
+  
+  int w = 0;
+  char* lineL = *pleft;
+  while(*lineL){
+    w++;
+    lineL++;
+  }
+  printf("w: %d\n", w);
+  
+  char* lineR = *pright;
+  while(*lineR){
+    w++;
+    lineR++;
+  }
+  printf("w: %d\n", w);
+
+  char** res = (char**) malloc(sizeof(char*) * h);
+  char** pres = res;
+
+  return res;
+}
