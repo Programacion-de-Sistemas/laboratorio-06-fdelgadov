@@ -79,7 +79,7 @@ char** join(char** left, char** right){
   int h = height(left);
   printf("h: %d\n", h);
   
-  int w = width(right);
+  int w = width(left);
   printf("w: %d\n", w);
   
   w += width(right);
