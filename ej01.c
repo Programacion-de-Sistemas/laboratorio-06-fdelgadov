@@ -5,6 +5,7 @@ void display(){
   char** blackSquare = reverse(whiteSquare);
   char** twoSquares = join(whiteSquare, blackSquare);
   freeMem(blackSquare);
-  char** fourSquares = join(twoSquares, twoSquares);
-  interpreter(fourSquares);
+  char** row = repeatH(twoSquares, 1);
+  freeMem(twoSquares);
+  interpreter(row);
 }

@@ -121,11 +121,10 @@ char** join(char** left, char** right){
 }
 
 char** repeatH(char** fig, int k){
-  char** res = fig;
-
-  for(int i = 1; i < k; i++){
-    res = join(res, fig);
-  }
+  if(k == 1) return fig;
+  
+  char** res;
+  res = join(fig, fig);  
 
   return res;
 }
