@@ -65,9 +65,6 @@ char** reverse(char** fig){
 }
 
 char** join(char** left, char** right){
-  char** pleft = left;
-  char** pright = right;
-
   int h = height(left);
   printf("h: %d\n", h);
   
@@ -79,6 +76,35 @@ char** join(char** left, char** right){
 
   char** res = (char**) malloc(sizeof(char*) * h);
   char** pres = res;
+  char** pleft = left;
+  char** pright = right;
+  char* lineF;
+  char* lineR;
+  
+  while(*pleft){
+    *res = (char*) malloc(sizeof(char) * w);
+    lineF = *pleft;
+    lineR = *res;
 
-  return res;
+    while(*lineF){
+      *lineR = *lineF;
+      lineR++;
+      lineF++;
+    }
+
+    lineF = *pright;
+
+    while(*lineF){
+      *lineR = *lineF;
+      lineR++;
+      lineF++;
+    }
+    *lineR = 0;
+    pleft++;
+    pright++;
+    res++;
+  }
+  *res = 0;
+
+  return pres;
 }
