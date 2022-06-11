@@ -85,7 +85,7 @@ char** join(char** left, char** right){
   w += width(right);
   printf("w: %d\n", w);
 
-  char** res = (char**) malloc(sizeof(char*) * h);
+  char** res = (char**) malloc(sizeof(char*) * (h + 1));
   char** pres = res;
   char** pleft = left;
   char** pright = right;
@@ -93,7 +93,7 @@ char** join(char** left, char** right){
   char* lineR;
   
   while(*pleft){
-    *res = (char*) malloc(sizeof(char) * w);
+    *res = (char*) malloc(sizeof(char) * (w + 1));
     lineF = *pleft;
     lineR = *res;
 
