@@ -147,5 +147,9 @@ char** repeatH(char** fig, int k){
   }
   *res = 0;
 
+  for(int i = 1; i < k; i++){
+    pres = join(pres, fig);
+  }
+
   return pres;
 }
