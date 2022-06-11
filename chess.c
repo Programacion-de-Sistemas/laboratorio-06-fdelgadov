@@ -119,3 +119,13 @@ char** join(char** left, char** right){
 
   return pres;
 }
+
+char** repeatH(char** fig, int k){
+  char** res = fig;
+
+  for(int i = 1; i < k; i++){
+    res = join(res, fig);
+  }
+
+  return res;
+}
