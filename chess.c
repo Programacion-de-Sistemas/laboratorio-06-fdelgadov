@@ -153,3 +153,47 @@ char** repeatH(char** fig, int k){
 
   return pres;
 }
+
+char** up(char** upp, char** down){
+  int h = height(upp) + height(down);
+  int w = width(upp);
+  
+  char** res = (char**) malloc(sizeof(char*) * (h + 1));
+  char** pres = res;
+  char** pfig = upp;
+  char* lineR;
+  char* lineF;
+  while(*pfig){
+    *res = (char*) malloc(sizeof(char) * (w + 1));
+    lineR = *res;
+    lineF = *pfig;
+
+    while(*lineF){
+      *lineR = *lineF;
+      lineR++;
+      lineF++;
+    }
+    *lineR = 0;
+    res++;
+    pfig++;
+  }
+
+  pfig = down;
+  while(*pfig){
+    *res = (char*) malloc(sizeof(char) * (w + 1));
+    lineR = *res;
+    lineF = *pfig;
+
+    while(*lineF){
+      *lineR = *lineF;
+      lineR++;
+      lineF++;
+    }
+    *lineR = 0;
+    res++;
+    pfig++;
+  }
+  *res = 0;
+
+  return pres;
+}
