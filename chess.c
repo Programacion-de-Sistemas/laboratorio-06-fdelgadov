@@ -121,10 +121,31 @@ char** join(char** left, char** right){
 }
 
 char** repeatH(char** fig, int k){
-  if(k == 1) return fig;
-  
-  char** res;
-  res = join(fig, fig);  
+  int h = height(fig);
+  printf("h: %d\n", h);
+  char** res = (char**) malloc(sizeof(char*) * (h + 1));
+  char** pres = res;
+  int w = width(fig);
+  printf("w: %d\n", w);
+  char** pfig = fig;
+  char* lineR;
+  char* lineF;
 
-  return res;
+  while(*pfig){
+    *res = (char*) malloc(sizeof(char) * (w + 1));
+    lineR = *res;
+    lineF = *pfig;
+    
+    while(*lineF){
+      *lineR = *lineF;
+      lineR++;
+      lineF++;
+    }
+    *lineR = 0;
+    res++;
+    pfig++;
+  }
+  *res = 0;
+
+  return pres;
 }
