@@ -19,18 +19,19 @@ char** reverse(char** fig){
   char* lineF;
   int i = 0;
   while(*pfig){
-    *res = (char*) malloc(sizeof(char) * 58);
-    lineR = *res;
+    char arr[58];
+    *res = arr;
+    lineR = arr;
     lineF = *pfig;
 
     while(*lineF){
       *lineR = negative(*lineF);
-      printf("%c", *lineR);
       lineR++;
       lineF++;
       i++;
     }
     *lineR = 0;
+    printf("%s", *res);
     printf("\n");
     res++;
     pfig++;
