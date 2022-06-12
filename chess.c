@@ -246,3 +246,33 @@ char** superImpose(char** over, char** under){
   
   return pres;
 }
+
+char** flipV(char** fig){
+  int h = height(fig);
+  int w = width(fig);
+  char** res = (char**) malloc(sizeof(char*) * (h + 1));
+  char** pres = res;
+  char** pfig = fig;
+  char* lineR;
+  char* lineF;
+  int i;
+
+  while(*pfig){
+    *res = (char*) malloc(sizeof(char) * (w + 1));
+    lineR = *res;
+    lineF = *pfig;
+    
+    i = 0;
+    while(*lineF){
+      *lineR = *(lineF + i);
+      lineR++;
+      i--;
+    }
+    *lineR = 0;
+    pfig++;
+    res++;
+  }
+  *res = 0;
+
+  return pres;
+}
