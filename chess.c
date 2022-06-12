@@ -284,16 +284,18 @@ char** flipH(char** fig){
   char** pres = res;
   char** pfig = fig;
   char* lineR;
+  char* lineF;
   
   int j = h - 1;
   while(j >= 0){
     *res = (char*) malloc(sizeof(char) * (w + 1));
     lineR = *res;
+    lineF = &pfig[j][0];
 
-    while(pfig[j]){
-      *lineR = *pfig[j];
+    while(*lineF){
+      *lineR = *lineF;
       lineR++;
-      pfig[j]++;
+      lineF++;
     }
     *lineR = 0;
     
