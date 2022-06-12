@@ -197,3 +197,13 @@ char** up(char** upp, char** down){
 
   return pres;
 }
+
+char** repeatV(char** fig, int k){
+  char** res = repeatH(fig, 1);
+  
+  for(int i = 1; i < k; i++){
+    res = up(res, fig);
+  }
+
+  return res;
+}
