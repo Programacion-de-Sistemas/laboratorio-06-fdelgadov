@@ -346,21 +346,19 @@ char** rotateR(char** fig){
   char* lineR;
   char* lineF;
   
-  int i;
-  int j = 0;
-  while(j < w){
+  for(int j = 0; j < w; j++){
     *res = (char*) malloc(sizeof(char) * (h + 1));
     lineR = *res;
-    i = h - 1;
-    while(i >= 0){
+
+    for(int i = h - 1; i >= 0; i--){
       *lineR = pfig[i][j];
       lineR++;
-      i--;
     }
+    
     *lineR = 0;
     res++;
-    j++;
   }
+
   *res = 0;
 
   return pres;
