@@ -306,3 +306,33 @@ char** flipH(char** fig){
 
   return pres;
 }
+
+char** rotateL(char** fig){
+  int h = height(fig);
+  int w = width(fig);
+  char** res = (char**) malloc(sizeof(char*) * (w + 1));
+  char** pres = res;
+  char** pfig = fig;
+  char* lineR;
+  char* lineF;
+  
+  int i;
+  int j = w - 1;
+  while(j >= 0){
+    *res = (char*) malloc(sizeof(char) * (h + 1));
+    lineR = *res;
+    i = 0;
+    while(i < h){
+      lineF = &pfig[i][0];
+      *lineR = lineF[j];
+      lineR++;
+      i++;
+    }
+    *lineR = 0;
+    res++;
+    j--;
+  }
+  *res = 0;
+
+  return pres;
+}
