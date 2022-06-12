@@ -260,12 +260,13 @@ char** flipV(char** fig){
   while(*pfig){
     *res = (char*) malloc(sizeof(char) * (w + 1));
     lineR = *res;
-    lineF = *pfig;
+    lineF = &pfig[0][0];
     
     i = 0;
     while(*lineF){
-      *lineR = *(lineF + i);
+      *lineR = *(lineF + 0);
       lineR++;
+      lineF++;
       i--;
     }
     *lineR = 0;
