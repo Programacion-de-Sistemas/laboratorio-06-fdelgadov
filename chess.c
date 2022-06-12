@@ -353,8 +353,7 @@ char** rotateR(char** fig){
     lineR = *res;
     i = h - 1;
     while(i >= 0){
-      lineF = &pfig[i][0];
-      *lineR = lineF[j];
+      *lineR = pfig[i][j];
       lineR++;
       i--;
     }
