@@ -2,6 +2,6 @@
 #include "figures.h"
 
 void display(){
-  char** flip = flipV(knight);
+  char** flip = flipH(knight);
   interpreter(flip);
 }

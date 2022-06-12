@@ -276,3 +276,31 @@ char** flipV(char** fig){
 
   return pres;
 }
+
+char** flipH(char** fig){
+  int h = height(fig);
+  int w = width(fig);
+  char** res = (char**) malloc(sizeof(char*) * (h + 1));
+  char** pres = res;
+  char** pfig = fig;
+  char* lineR;
+  
+  int j = h - 1;
+  while(j >= 0){
+    *res = (char*) malloc(sizeof(char) * (w + 1));
+    lineR = *res;
+
+    while(pfig[j]){
+      *lineR = *pfig[j];
+      lineR++;
+      pfig[j]++;
+    }
+    *lineR = 0;
+    
+    j--;
+    res++;
+  }
+  *res = 0;
+
+  return pres;
+}
