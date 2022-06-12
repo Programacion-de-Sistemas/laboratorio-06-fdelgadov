@@ -47,14 +47,16 @@ void freeMem(char** fig){
 }
 
 char** reverse(char** fig){
-  char** res = (char**) malloc(sizeof(char*) * 58);
+  int h = height(fig);
+  char** res = (char**) malloc(sizeof(char*) * h);
   char** resx = res;
   char** pfig = fig;
   char* lineR;
   char* lineF;
   int i = 0;
+  int w = width(fig);
   while(*pfig){
-    *res = (char*) malloc(sizeof(char) * 58);
+    *res = (char*) malloc(sizeof(char) * w);
     lineR = *res;
     lineF = *pfig;
 
