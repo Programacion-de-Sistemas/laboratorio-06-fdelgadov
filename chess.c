@@ -258,16 +258,20 @@ char** flipV(char** fig){
   int i;
 
   while(*pfig){
-    *res = (char*) malloc(sizeof(char) * (w + 1));
+    char aux[w];
+    *res = &aux[0];
     lineR = *res;
     lineF = *pfig;
     
     i = w - 1;
+    int j = 0;
     while(i >= 0){
-      *lineR = lineF[i];
-      lineR++;
+      lineR[j] = lineF[i];
       i--;
+      j++;
+      printf("%c", lineR[j]);
     }
+    printf("\n");
     *lineR = 0;
     pfig++;
     res++;
