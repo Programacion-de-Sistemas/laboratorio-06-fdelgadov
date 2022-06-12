@@ -207,3 +207,40 @@ char** repeatV(char** fig, int k){
 
   return res;
 }
+
+char** superImpose(char** over, char** under){
+  int h = height(over);
+  int w = width(over);
+  char** res = (char**) malloc(sizeof(char*) * (h + 1));
+  char** pres = res;
+
+  char* lineR = *res;
+  char* lineO = *over;
+  char* lineU = *under;
+
+  while(*over){
+    *res = (char*) malloc(sizeof(char) * (w + 1));
+    lineR = *res;
+    lineO = *over;
+    lineU = *under;
+
+    while(*lineO){
+      if(*lineO == ' ')
+        *lineR = *lineU;
+      else
+        *lineR = *lineO;
+      
+      lineR++;
+      lineO++;
+      lineU++;
+    }
+    *lineR = 0;
+
+    res++;
+    over++;
+    under++;
+  }
+  *res = 0;
+  
+  return pres;
+}
