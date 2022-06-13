@@ -53,7 +53,6 @@ char** reverse(char** fig){
   char** pfig = fig;
   char* lineR;
   char* lineF;
-  int i = 0;
   int w = width(fig);
   while(*pfig){
     *res = (char*) malloc(sizeof(char) * w);
@@ -62,30 +61,21 @@ char** reverse(char** fig){
 
     while(*lineF){
       *lineR = negative(*lineF);
-      printf("%c", *lineR);
       lineR++;
       lineF++;
-      i++;
     }
     *lineR = 0;
-    printf("\n");
     res++;
     pfig++;
   }
   *res = 0;
-  printf("length: %d\n", i);
   return resx;
 }
 
 char** join(char** left, char** right){
   int h = height(left);
-  printf("h: %d\n", h);
-  
   int w = width(left);
-  printf("w: %d\n", w);
-  
   w += width(right);
-  printf("w: %d\n", w);
 
   char** res = (char**) malloc(sizeof(char*) * (h + 1));
   char** pres = res;
@@ -124,11 +114,9 @@ char** join(char** left, char** right){
 
 char** repeatH(char** fig, int k){
   int h = height(fig);
-  printf("h: %d\n", h);
   char** res = (char**) malloc(sizeof(char*) * (h + 1));
   char** pres = res;
   int w = width(fig);
-  printf("w: %d\n", w);
   char** pfig = fig;
   char* lineR;
   char* lineF;
@@ -148,9 +136,12 @@ char** repeatH(char** fig, int k){
     pfig++;
   }
   *res = 0;
-
+  
+  char** tmp;
   for(int i = 1; i < k; i++){
+    tmp = pres;
     pres = join(pres, fig);
+    freeMem(tmp);
   }
 
   return pres;
@@ -202,9 +193,12 @@ char** up(char** upp, char** down){
 
 char** repeatV(char** fig, int k){
   char** res = repeatH(fig, 1);
-  
+  char** tmp;
+
   for(int i = 1; i < k; i++){
+    tmp = res;
     res = up(res, fig);
+    freeMem(tmp);
   }
 
   return res;
