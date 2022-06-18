@@ -3,5 +3,6 @@
 
 void display(){
   char** blackKnight = reverse(knight);
+  freeMem(blackKnight);
   interpreter(blackKnight);
 }

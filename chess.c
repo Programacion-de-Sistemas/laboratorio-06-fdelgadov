@@ -36,12 +36,13 @@ int width(char** fig){
 }
 
 void freeMem(char** fig){
+  char** pfig = fig;
   while(*fig){
     free(*fig);
     fig++;
   }
 
-  free(fig);
+  free(pfig);
 }
 
 char** reverse(char** fig){
